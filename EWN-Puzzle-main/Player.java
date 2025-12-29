@@ -1,3 +1,7 @@
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public abstract class Player {
     // ============================================================
     // TODO: Implement printMove()
@@ -7,6 +11,20 @@ public abstract class Player {
     //
     // You may decide on the return type, parameters, and internal logic.
     // ============================================================
+
+    public void printMove(int[] position){
+        try{
+            PrintWriter pw = new PrintWriter(new FileOutputStream("moves.txt"));
+            for(int i:position){
+                pw.print(i + " ");
+            }
+            pw.println();
+            pw.close();
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
     // ============================================================
     // TODO: Implement abstract function - chooseMove()
@@ -19,4 +37,5 @@ public abstract class Player {
 
     // You may also add any other helper functions, variables,
     // and constructors needed for your implementation.
+    public abstract int chooseMove(int diceRoll, int[] currentPositions);
 }
