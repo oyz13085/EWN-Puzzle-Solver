@@ -46,6 +46,12 @@ public class GameMain {
         getLevel();
     }
 }
+//        GameState position = new GameState(loader.initialPosition,  loader.diceSequence);
+//        position.generatePossibleMoves();
+//        // choseMove();
+//        //Show result win or lose
+
+
         // ============================================================
         // TODO: Implement the main() function
         // ------------------------------------------------------------
