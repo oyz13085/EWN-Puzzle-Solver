@@ -1,4 +1,6 @@
 public class HumanPlayer extends Player {
+
+    chooseMove()
     // ============================================================
     // TODO: Implement chooseMove()
     // ------------------------------------------------------------
