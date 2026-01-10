@@ -41,7 +41,7 @@ public class GameMain {
             state = new GameState(loader.getInitialPosition(),loader.getTargetPiece());
             return selectedLevel;
         }else{
-            throw new IllegalArgumentException("Choose 1 to 24 only");
+            throw new IllegalArgumentException("Choose 1 to 4 only");
         }
         
     }
