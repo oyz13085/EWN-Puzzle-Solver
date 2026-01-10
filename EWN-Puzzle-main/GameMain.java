@@ -37,7 +37,7 @@ public class GameMain {
             loader.printGameDetails(mode, name);
             return selectedLevel;
         }else{
-            throw new IllegalArgumentException("Choose 1 to 24 only");
+            throw new IllegalArgumentException("Choose 1 to 4 only");
         }
         
     }
