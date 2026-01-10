@@ -1,0 +1,11 @@
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# BlueJ context files (common in university projects)
+*.ctxt
+
+# VS Code settings
+.vscode/
