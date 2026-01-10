@@ -4,45 +4,34 @@ public class GameLoader {
     private int targetPiece;
     private int[] initialPosition = new int[6];
     private int[] diceSequence = new int[30];
+    private int mode;
 
     public GameLoader(int selectedLevel) {
-        String fileName = "TestCases//level" + selectedLevel + ".txt";
-        
-        try (Scanner input = new Scanner(new FileInputStream(fileName))) {
-            if (input.hasNextInt()) {
-                targetPiece = input.nextInt();
-                
-                for (int j = 0; j < initialPosition.length; j++) {
-                    initialPosition[j] = input.nextInt(); 
-                }
+        if (selectedLevel < 1 || selectedLevel > 4) {
+            System.out.println("Invalid level");
+        } else {
+            String fileName = "TestCases//level" + selectedLevel + ".txt";
+
+            try (Scanner input = new Scanner(new FileInputStream(fileName))) {
+                if (input.hasNextInt()) {
+                    targetPiece = input.nextInt();
+
+                    for (int j = 0; j < initialPosition.length; j++) {
+                        initialPosition[j] = input.nextInt();
+                    }
 
                     for (int k = 0; k < diceSequence.length; k++) {
-                    diceSequence[k] = input.nextInt();
+                        diceSequence[k] = input.nextInt();
+                    }
                 }
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found: " + fileName);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + fileName);
         }
     }
-
-    public int[] getInitialPosition(){
-        int[] answer = new int[7];
-        for(int i=1;i<7;i++){
-            answer[i] = initialPosition[i-1];
-        }
-        return answer;
-    }
-
-    public int getTargetPiece(){
-        return targetPiece;
-    }
-
-    public int getDiceRoll(int move){
-        return diceSequence[move];
-    }
-    
 
     public void printGameDetails(int selectedMode, String humanPlayerName) {
+        this.mode = selectedMode;
         try {
             PrintWriter outputStream = new PrintWriter(new FileOutputStream("moves.txt"));
             if (selectedMode == 0) {

@@ -4,6 +4,7 @@ public class GameLoader {
     private int targetPiece;
     private int[] initialPosition = new int[6];
     private int[] diceSequence = new int[30];
+    private int mode;
 
     public GameLoader(int selectedLevel) {
         String fileName = "TestCases//level" + selectedLevel + ".txt";
@@ -24,25 +25,10 @@ public class GameLoader {
             System.out.println("File not found: " + fileName);
         }
     }
-
-    public int[] getInitialPosition(){
-        int[] answer = new int[7];
-        for(int i=1;i<7;i++){
-            answer[i] = initialPosition[i-1];
-        }
-        return answer;
-    }
-
-    public int getTargetPiece(){
-        return targetPiece;
-    }
-
-    public int getDiceRoll(int move){
-        return diceSequence[move];
-    }
     
 
     public void printGameDetails(int selectedMode, String humanPlayerName) {
+        this.mode = selectedMode;
         try {
             PrintWriter outputStream = new PrintWriter(new FileOutputStream("moves.txt"));
             if (selectedMode == 0) {

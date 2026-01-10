@@ -23,7 +23,6 @@ public class GameState {
     public boolean isWinning() {
         int currentPos = piecePositions[targetPiece];
         if (currentPos == 0) {
-            System.out.println("You win!");
             return true;
         }
         return false;

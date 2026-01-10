@@ -10,7 +10,7 @@ public class RandomPlayer extends Player{
     }
 
     @Override
-    public Move chooseMove(gameState gamestate){
+    public Move chooseMove(GameState gamestate){
 
         List<Move> possibleMoves = gameState.generatePossibleMoves();
 

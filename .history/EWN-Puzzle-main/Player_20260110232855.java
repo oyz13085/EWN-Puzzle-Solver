@@ -1,7 +1,6 @@
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
 
 public abstract class Player {
     // ============================================================
@@ -15,9 +14,9 @@ public abstract class Player {
 
     public void printMove(int[] position){
         try{
-            PrintWriter pw = new PrintWriter(new FileOutputStream("moves.txt",true));
-            for(int i=1;i<7;i++){
-                pw.print(position[i] + " ");
+            PrintWriter pw = new PrintWriter(new FileOutputStream("moves.txt"));
+            for(int i:position){
+                pw.print(i + " ");
             }
             pw.println();
             pw.close();
@@ -38,5 +37,5 @@ public abstract class Player {
 
     // You may also add any other helper functions, variables,
     // and constructors needed for your implementation.
-    public abstract int[] chooseMove(List<Integer> diceRoll, int[] currentPositions);
+    public abstract int chooseMove(int diceRoll, int[] currentPositions);
 }

@@ -16,7 +16,7 @@ public abstract class Player {
     public void printMove(int[] position){
         try{
             PrintWriter pw = new PrintWriter(new FileOutputStream("moves.txt",true));
-            for(int i=1;i<7;i++){
+            for(int i=1;i<8;i++){
                 pw.print(position[i] + " ");
             }
             pw.println();

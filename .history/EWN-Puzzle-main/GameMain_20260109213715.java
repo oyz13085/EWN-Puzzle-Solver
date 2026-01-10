@@ -1,14 +1,10 @@
 import java.util.Scanner;
-import java.util.Arrays;
 public class GameMain {
     static int mode;
     static String name;
-    static GameState state;
-    static GameLoader loader;
-    static Scanner input = new Scanner(System.in);
-
-    private static void gameMode() {
+    private static int gameMode() {
         System.out.println("Enter your game mode (Human = 0, Random = 1, AI = 2): ");
+        Scanner input = new Scanner(System.in);
         mode = input.nextInt();
         switch (mode) {
             case 0:
@@ -23,57 +19,30 @@ public class GameMain {
                 break;
             default:
                 System.out.println("Invalid Input");
-                throw new IllegalArgumentException("Choose 0 to 2 only");
         }
+        return mode;
     }
 
     private static String humanName() {
         System.out.println("Enter your name: ");
+        Scanner input = new Scanner(System.in);
         return input.nextLine();
     }
 
     private static int getLevel() {
+        Scanner input = new Scanner(System.in);
         System.out.println("Select a level (1-4): ");
         int selectedLevel = input.nextInt();
         if (selectedLevel >= 1 && selectedLevel<= 4) {
-            loader = new GameLoader(selectedLevel);
+            GameLoader loader = new GameLoader(selectedLevel);
             loader.printGameDetails(mode, name);
-            state = new GameState(loader.getInitialPosition(),loader.getTargetPiece());
-            return selectedLevel;
-        }else{
-            throw new IllegalArgumentException("Choose 1 to 24 only");
         }
-        
-    }
-
-    private static void mainGame(int mode){
-        switch (mode) {
-            case 0:
-                
-                break;
-            case 1:
-                
-                break;
-            case 2: //AI
-                Player player = new AIPlayer();
-                System.out.println("Done");
-                for(int i=0;i<30 && !state.isWinning();i++){
-                    int diceRoll = loader.getDiceRoll(i);
-                    state.updatePositions(player.chooseMove(state.generatePossiblePieces(diceRoll),state.getCurrentPositions())); //will change the position inside the chooseMove method
-                    System.out.println(Arrays.toString(state.getCurrentPositions()));
-                    player.printMove(state.getCurrentPositions());
-                }
-                break;
-            default:
-                System.out.println("Invalid Input");
-        }
-
+        return selectedLevel;
     }
 
     public static void main(String[] args) {
         gameMode();
-        getLevel(); //set up the states of the level
-        mainGame(mode);
+        getLevel();
     }
 }
 //        GameState position = new GameState(loader.initialPosition,  loader.diceSequence);

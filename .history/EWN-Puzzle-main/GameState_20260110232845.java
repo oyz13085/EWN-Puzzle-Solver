@@ -23,36 +23,32 @@ public class GameState {
     public boolean isWinning() {
         int currentPos = piecePositions[targetPiece];
         if (currentPos == 0) {
-            System.out.println("You win!");
             return true;
         }
         return false;
     }
 
-    public List<Integer> generatePossiblePieces(int diceRoll) {
-        List<Integer> answer = new ArrayList<>();
+    public void generatePossiblePieces(int diceRoll) {
         if (piecePositions[diceRoll] != -1) {
-            answer.add(diceRoll);
+            System.out.print("Movable pieces are " + diceRoll);
         } else {
             for (int i = diceRoll + 1; i <= 6; i++) {
-                if (piecePositions[i] != -1) {  
-                    answer.add(i);
+                if (piecePositions[i] != -1) {
+                    System.out.print("Movable pieces are " + i);
                     break;
                 }
             }
 
             for (int i = diceRoll - 1; i >= 1; i--) {
                 if (piecePositions[i] != -1) {
-                    answer.add(i);
+                    System.out.print("Movable pieces are " + i);
                     break;
                 }
             }
         }
-        System.out.print("Movable pieces are " + answer);
-        return answer;
     }
 
-    public static List<Integer> generatePossibleMoves(int piece, int[] piecePositions) {// piece will come from player
+    public List<Integer> generatePossibleMoves(int piece) {// piece will come from player
         List<Integer> moves = new ArrayList<>();
         int currentPos = piecePositions[piece];
 

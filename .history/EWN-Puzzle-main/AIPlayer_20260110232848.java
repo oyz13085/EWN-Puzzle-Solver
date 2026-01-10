@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class AIPlayer extends Player {
     // ============================================================
     // TODO: Implement chooseMove()
@@ -23,27 +21,8 @@ public class AIPlayer extends Player {
         
     }
 
-    public int[] chooseMove(List<Integer> diceRoll, int[] currentPosition){
-        int movingPiece;
-        if(diceRoll.size() == 1){
-            movingPiece = diceRoll.get(0);
-        }else{
-            movingPiece = diceRoll.get((int)(Math.random() * 2));
-        }
-
-        System.out.println("Your current moving piece: " + movingPiece);
-
-        List<Integer> possibleMoves = GameState.generatePossibleMoves(movingPiece, currentPosition);
-
-        System.out.println("Your current possible moves: " + possibleMoves);
-
-        int moveChosen = possibleMoves.get((int)Math.random() * possibleMoves.size());
-
-        System.out.println("You choose Move " + moveChosen);
-        
-        currentPosition[movingPiece] = moveChosen;
-
-        return currentPosition;
+    public int chooseMove(int diceRoll, int[] currentPosition){
+        return 0;
     }
 
 }
