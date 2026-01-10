@@ -24,9 +24,9 @@ public class GameState {
         Player currentPlayer;
 
 // 2. Decide who is playing (maybe based on a menu choice)
-        if (userChoice == HumanPlayer) {
+        if (mode == 0) {
             currentPlayer = new HumanPlayer();    // Load from Human.java
-        } else if (userChoice == AIPlayer) {
+        } else if (mode == 2) {
             currentPlayer = new AIPlayer();       // Load from AI.java
         } else {
             currentPlayer = new RandomPlayer(); // Load from RandomPlayer.java
