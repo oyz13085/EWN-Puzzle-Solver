@@ -1,1 +1,7 @@
-# Edit this file to become your report
+#2.1 WIX1002 FUNDAMENTALS OF PROGRAMMING - TOPIC 6: EinStein  würfelt nicht! Puzzle Solver 
+#2.2 Team Members:
+    1. OOI YONG ZHE (25069059)
+    2. CHEW JEE SYUEN (25066410)
+    3. LIM KAI HERN (23116000)
+    4. CHAANG WAI CHIU (23104771)
+    5. SI JUN TIAN (25068553)
