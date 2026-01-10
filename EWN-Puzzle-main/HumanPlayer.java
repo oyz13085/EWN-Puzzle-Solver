@@ -17,11 +17,13 @@ public class HumanPlayer extends Player {
             return diceRoll;
         }
 
-       
-        System.out.println("Piece " + diceRoll + " is captured/missing.");
+       if (currentPositions[diceRoll] == -1) {
+            System.out.println("Piece " + diceRoll + " is captured/missing.");
+            int lowerOption = -1;
+            int higherOption = -1;
+        }
+
         
-        int lowerOption = -1;
-        int higherOption = -1;
 
        
         for (int i = diceRoll - 1; i >= 1; i--) {
