@@ -2,9 +2,10 @@ import java.util.Scanner;
 public class GameMain {
     static int mode;
     static String name;
-    private static int gameMode() {
+    static Scanner input = new Scanner(System.in);
+
+    private static void gameMode() {
         System.out.println("Enter your game mode (Human = 0, Random = 1, AI = 2): ");
-        Scanner input = new Scanner(System.in);
         mode = input.nextInt();
         switch (mode) {
             case 0:
@@ -19,31 +20,49 @@ public class GameMain {
                 break;
             default:
                 System.out.println("Invalid Input");
+                throw new IllegalArgumentException("Choose 0 to 2 only");
         }
-        return mode;
     }
 
     private static String humanName() {
         System.out.println("Enter your name: ");
-        Scanner input = new Scanner(System.in);
-        String humanPlayerName = input.nextLine();
-        return humanPlayerName;
+        return input.nextLine();
     }
 
     private static int getLevel() {
-        Scanner input = new Scanner(System.in);
         System.out.println("Select a level (1-4): ");
-        int selectedlevel = input.nextInt();
-        if (selectedlevel >= 1 && selectedlevel<= 4) {
-            GameLoader loader = new GameLoader(selectedlevel);
+        int selectedLevel = input.nextInt();
+        if (selectedLevel >= 1 && selectedLevel<= 4) {
+            GameLoader loader = new GameLoader(selectedLevel);
             loader.printGameDetails(mode, name);
+            return selectedLevel;
+        }else{
+            throw new IllegalArgumentException("Choose 1 to 24 only");
         }
-        return selectedlevel;
+        
+    }
+
+    private static void mainGame(int mode){
+        switch (mode) {
+            case 0:
+                
+                break;
+            case 1:
+                
+                break;
+            case 2:
+                
+                break;
+            default:
+                System.out.println("Invalid Input");
+        }
+
     }
 
     public static void main(String[] args) {
         gameMode();
         getLevel();
+        mainGame(mode);
     }
 }
 //        GameState position = new GameState(loader.initialPosition,  loader.diceSequence);

@@ -7,31 +7,25 @@ public class GameLoader {
     private int mode;
 
     public GameLoader(int selectedLevel) {
-        if (selectedLevel < 1 || selectedLevel > 4) {
-            System.out.println("Invalid level");
-        } else {
-            String fileName = "level" + selectedLevel + ".txt";
-
-            try (Scanner input = new Scanner(new FileInputStream(fileName))) {
-                if (input.hasNextInt()) {
-                    targetPiece = input.nextInt();
-
-                    for (int j = 0; j < initialPosition.length; j++) {
-                        initialPosition[j] = input.nextInt();
-                    }
+        String fileName = "TestCases//level" + selectedLevel + ".txt";
+        
+        try (Scanner input = new Scanner(new FileInputStream(fileName))) {
+            if (input.hasNextInt()) {
+                targetPiece = input.nextInt();
+                
+                for (int j = 0; j < initialPosition.length; j++) {
+                    initialPosition[j] = input.nextInt(); 
+                }
 
                     for (int k = 0; k < diceSequence.length; k++) {
-                        diceSequence[k] = input.nextInt();
-                    }
+                    diceSequence[k] = input.nextInt();
                 }
-            } catch (FileNotFoundException e) {
-                System.out.println("File not found: " + fileName);
-            } catch (IOException e) {
-                System.out.println("IO Exception");
-                e.printStackTrace();
             }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + fileName);
         }
     }
+    
 
     public void printGameDetails(int selectedMode, String humanPlayerName) {
         this.mode = selectedMode;
