@@ -24,17 +24,17 @@ This project requires students to develop a simulator and solver for the single-
    (d) Fourth line, print out the initial position of all the 6 pieces.\
    (e) Fifth line onwards until last line, print out the position of the pieces after each move until the game ends.\
    
-3. GameState.java - generatePossibleMoves()
-    (a)generatePossibleMoves()method is used to determine the possible moves for each pieces\
-    (b)It works by taking the piece input and using that input to calculate the steps that are movable while avoid space 22\
-    (c)First ,it detects if the pieces from dice roll is it still on the board,if no it will calculate the close two pieces
+3. GameState.java - generatePossibleMoves()\
+    (a)generatePossibleMoves()method is used to determine the possible moves for each piece.\
+    (b)It works by taking the piece input and using that input to calculate the steps that are movable while avoiding space 22\
+    (c)First,it detects if the pieces from dice roll are still on the board, it will calculate the closest two pieces
        in terms of bigger and smaller and outputs to user.\
-    (d)Calculation is then done so it by seperating the piece position with mathematical equations into rows and coloumn and 
-       then its check with different conditions to ensure that the value is not out of bound and does not interfere with the space 22.\
-    (e)All of the positions that are valid are then stored in a arraylist call moves.\
-5. GameState.java - isWinning() 
+    (d)Calculation is then done by separating the piece position with mathematical equations into rows and columns and 
+       then its check with different conditions to ensure that the value is not out of bounds and does not interfere with the space 22.\
+    (e)All of the valid positions are then stored in a arraylist call moves.\
+5. GameState.java - isWinning() \
     (a)isWinning() is used to check if the winning conditions are met.\
-    (b)if the current position of the pieces are at the "0" space ,System will output "You win!".\
+    (b)If the current position of the pieces is at the "0" space, the system will output "You win!".\
 6. HumanPlayer.java - chooseMove()
 7. RandomPlayer.java - chooseMove()
 8. Player.java - printMove()
