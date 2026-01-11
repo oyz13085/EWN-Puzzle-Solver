@@ -38,6 +38,12 @@ This project requires students to develop a simulator and solver for the single-
     (b) If the current position of the pieces is at the "0" space, the system will output "You win!".
 5. HumanPlayer.java - chooseMove()
 6. RandomPlayer.java - chooseMove()
+   (a) Purpose: Extends the Player class to handle move selection for the random player.
+   (b) Core Logic:
+   Fetches all valid moves via GameState.generatePossibleMoves() (stored in List<Move>).
+   Returns null if no valid moves exist (prevents NPE).
+   Uses Random to pick a random index from the valid moves list, then returns the corresponding Move.
+   (c) Output: A randomly selected Move (containing target piece and destination) to update the game state in GameMain.
 7. Player.java - printMove()
 
 8. GameMain.java - main()\
