@@ -14,7 +14,7 @@ This project requires students to develop a simulator and solver for the single-
 1. GameLoader.java - Constructor\
    (a) Constructor is created to read data from the given filename (level1.txt, level2.txt, level3.txt and level4.txt).\
    (b) Data read from the files are stored in appropriate variables (targetPiece, initialPosition and diceSequence).\
-   (c) Validation was carried out using try and catch for the selectedLevel(1-4).\
+   (c) Validation was carried out using try and catch for the selectedLevel(1-4).
    
 2. GameLoader.java - printGameDetails()\
    (a) printGameDetails() method was used to print all the game setup details into "moves.txt" file\
@@ -22,7 +22,7 @@ This project requires students to develop a simulator and solver for the single-
    (b) Second line, print out the dice Sequence (30 sequences).\
    (c) Third line, print out the target piece.\
    (d) Fourth line, print out the initial position of all the 6 pieces.\
-   (e) Fifth line onwards until last line, print out the position of the pieces after each move until the game ends.\
+   (e) Fifth line onwards until last line, print out the position of the pieces after each move until the game ends.
    
 3. GameState.java - generatePossibleMoves()\
    (a) generatePossibleMoves() method is used to determine the possible moves for each piece.\
@@ -31,11 +31,11 @@ This project requires students to develop a simulator and solver for the single-
        in terms of bigger and smaller and outputs to user.\
    (d) Calculation is then done by separating the piece position with mathematical equations into rows and columns and 
        then its check with different conditions to ensure that the value is not out of bounds and does not interfere with the space 22.\
-   (e) All of the valid positions are then stored in a arraylist call moves.\
+   (e) All of the valid positions are then stored in a arraylist call moves.
    
 4. GameState.java - isWinning() \
     (a) isWinning() is used to check if the winning conditions are met.\
-    (b) If the current position of the pieces is at the "0" space, the system will output "You win!".\
+    (b) If the current position of the pieces is at the "0" space, the system will output "You win!".
 5. HumanPlayer.java - chooseMove()
 6. RandomPlayer.java - chooseMove()
 7. Player.java - printMove()
@@ -47,7 +47,7 @@ This project requires students to develop a simulator and solver for the single-
    (b) humanName() method was used to ask user enter their username is the mode chosen is Human Player\
    (c) getLevel() method was used to prompt users to enter the level that they want (level 1-4)\
        If the levelSelected in valid, it it instantiates a GameLoader object to load the specific level file and immediately         calls printGameDetails() method to save the configuration to "moves.txt".\
-   (d) main() method is where all the methods were called (gameMode(), getLevel(), chooseMove()) and display the result of           the game whether it is winning or losing\
+   (d) main() method is where all the methods were called (gameMode(), getLevel(), chooseMove()) and display the result of           the game whether it is winning or losing.
 # Extra Features
 1. Level 1
 2. Level 2
