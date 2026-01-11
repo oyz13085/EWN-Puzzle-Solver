@@ -74,6 +74,11 @@ public class GameMain {
         gameMode();
         getLevel(); //set up the states of the level
         mainGame(mode);
+        if (state.isWinning()) {
+            System.out.println("Congratulations! You win!");
+        } else {
+            System.out.println("Game Over! You lose!");
+        }
     }
 }
 //        GameState position = new GameState(loader.initialPosition,  loader.diceSequence);
