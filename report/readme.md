@@ -6,7 +6,7 @@
     4. CHAANG WAI CHIU (23104771)
     5. SI JUN TIAN (25068553)
 # Project Overview
-Introduction
+Introduction\
 This project requires students to develop a simulator and solver for the single-player EinStein würfelt nicht variant puzzle using Java. Originally conceptualized by Professor Ingo Althöfer, the game gets its name from Albert Einstein’s famous 1926 declaration, "I am convinced that He (God) does not play dice," a critique of the randomness inherent in quantum mechanics. While the traditional game uses dice to drive gameplay, this project implements a deterministic single-player variant. In this version, the dice rolls are replaced by fixed sequences which transform the game from a test of probability into a complex logic puzzle. The board size for this puzzle is in 10 x 10 grid where pieces move according to "King-style" mechanics. The primary objective is to maneuver the target piece to square 0 within limited number of moves which is 30 moves, navigating around static obstacles and utilizing strategic captures.
 
 # Features Implemented
@@ -50,8 +50,11 @@ This project requires students to develop a simulator and solver for the single-
 # Contribution
   1. Ooi Yong Zhe:
   2. Chew Jee Syuen:
-  3. Lim Kai Hern:
-  4. Chaang Wai Chiu:
-  5. Si Jun Tian:
+     - Complete GameLoader part
+     - Complete GameMain part
+     - Write report
+  4. Lim Kai Hern:
+  5. Chaang Wai Chiu:
+  6. Si Jun Tian:
 # Challenges faced
   
