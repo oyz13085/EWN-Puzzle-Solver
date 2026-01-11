@@ -13,27 +13,22 @@ public class HumanPlayer extends Player {
     
     public int[] chooseMove(List<Integer> movablePieces, int[] currentPositions) {
         
-        // ---------------------------------------------------------
-        // STEP 1: Choose WHICH Piece to Move
-        // ---------------------------------------------------------
         int selectedPiece = -1;
 
-        // Should not happen in normal logic, but good safety check
         if (movablePieces.isEmpty()) {
             System.out.println("No movable pieces available. Skipping turn.");
             return currentPositions;
         }
 
-        // If there is only one valid piece, force selection (or auto-select)
-        // However, to keep it interactive, we show them the only option.
-        System.out.println("\n--- Your Turn ---");
-        System.out.println("Movable Piece(s): " + movablePieces);
+        
+        System.out.println("\n Your Turn ");
+        System.out.println("Movable Pieces: " + movablePieces);
 
         while (true) {
             System.out.print("Select a piece to move: ");
             if (scanner.hasNextInt()) {
                 int input = scanner.nextInt();
-                // Validation: The input must be inside the movablePieces list
+                
                 if (movablePieces.contains(input)) {
                     selectedPiece = input;
                     break; // Valid input, exit loop
