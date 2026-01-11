@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 public class GameMain {
-    static int mode;
+    static int mode, selectedLevel;
     static String name;
     static GameState state;
     static GameLoader loader;
@@ -34,7 +34,7 @@ public class GameMain {
 
     private static int getLevel() {
         System.out.println("Select a level (1-4): ");
-        int selectedLevel = input.nextInt();
+        selectedLevel = input.nextInt();
         if (selectedLevel >= 1 && selectedLevel<= 4) {
             loader = new GameLoader(selectedLevel);
             loader.printGameDetails(mode, name);
@@ -60,8 +60,10 @@ public class GameMain {
                 for(int i=0;i<30 && !state.isWinning();i++){
                     int diceRoll = loader.getDiceRoll(i);
                     state.updatePositions(player.chooseMove(state.generatePossiblePieces(diceRoll),state.getCurrentPositions())); //will change the position inside the chooseMove method
-                    System.out.println(Arrays.toString(state.getCurrentPositions()));
+                    System.out.println("\nCurrent positions: " + Arrays.toString(state.getCurrentPositions()));
                     player.printMove(state.getCurrentPositions());
+
+                    
                 }
                 break;
             default:
