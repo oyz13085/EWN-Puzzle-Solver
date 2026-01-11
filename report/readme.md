@@ -68,5 +68,6 @@ This project requires students to develop a simulator and solver for the single-
      - Complete GameState part
   5. Chaang Wai Chiu:
   6. Si Jun Tian:
+     -Complete RandomPlayer part
 # Challenges faced
   
