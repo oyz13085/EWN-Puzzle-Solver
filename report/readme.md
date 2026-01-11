@@ -25,12 +25,21 @@ This project requires students to develop a simulator and solver for the single-
    (e) Fifth line onwards until last line, print out the position of the pieces after each move until the game ends.\
    
 3. GameState.java - generatePossibleMoves()
-4. GameState.java - isWinning()
-5. HumanPlayer.java - chooseMove()
-6. RandomPlayer.java - chooseMove()
-7. Player.java - printMove()
+    (a)generatePossibleMoves()method is used to determine the possible moves for each pieces
+    (b)It works by taking the piece input and using that input to calculate the steps that are movable while avoid space 22
+    (c)First ,it detects if the pieces from dice roll is it still on the board,if no it will calculate the close two pieces
+       in terms of bigger and smaller and outputs to user.
+    (d)Calculation is then done so it by seperating the piece position with mathematical equations into rows and coloumn and 
+       then its check with different conditions to ensure that the value is not out of bound and does not interfere with the        space 22.
+    (e)All of the positions that are valid are then stored in a arraylist call moves.
+5. GameState.java - isWinning() 
+    (a)isWinning() is used to check if the winning conditions are met
+    (b)if the current position of the pieces are at the "0" space ,System will output "You win!".
+6. HumanPlayer.java - chooseMove()
+7. RandomPlayer.java - chooseMove()
+8. Player.java - printMove()
 
-8. GameMain.java - main()\
+9. GameMain.java - main()\
    (a) gameMode() method was used to ask player to input the mode (Human Player, Random Player or AI Player).\
        To make it easy for the user to input, we define Human Player as 0, Random Player as 1 and AI Player as 2.\
        User only need to input the mode is either (0,1 or 2).\
@@ -49,11 +58,13 @@ This project requires students to develop a simulator and solver for the single-
 # Screenshots
 # Contribution
   1. Ooi Yong Zhe:
-  2. Chew Jee Syuen:
+     -Done major changes to GameState to refine and reduce redundancy within classes
+  3. Chew Jee Syuen:
      - Complete GameLoader part
      - Complete GameMain part
      - Write report
   4. Lim Kai Hern:
+     -Complete GameState part
   5. Chaang Wai Chiu:
   6. Si Jun Tian:
 # Challenges faced
