@@ -1,88 +1,87 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class HumanPlayer extends Player {
 
-    
-    private Scanner scanner = new Scanner(System.in);
+    // Scanner object to read input from the terminal
+    private Scanner scanner;
 
-   
-    
-    public int chooseMove(int diceRoll, int[] currentPositions) {
-        System.out.println("\nDice Roll: " + diceRoll);
+    public HumanPlayer() {
+        this.scanner = new Scanner(System.in);
+    }
 
+    
+    public int[] chooseMove(List<Integer> movablePieces, int[] currentPositions) {
         
-        if (currentPositions[diceRoll] != -1) {
-            System.out.println("Piece " + diceRoll + " is available.");
-            System.out.println("You must move piece " + diceRoll);
-            return diceRoll;
+        // ---------------------------------------------------------
+        // STEP 1: Choose WHICH Piece to Move
+        // ---------------------------------------------------------
+        int selectedPiece = -1;
+
+        // Should not happen in normal logic, but good safety check
+        if (movablePieces.isEmpty()) {
+            System.out.println("No movable pieces available. Skipping turn.");
+            return currentPositions;
         }
 
-       if (currentPositions[diceRoll] == -1) {
-            System.out.println("Piece " + diceRoll + " is captured/missing.");
-            int lowerOption = -1;
-            int higherOption = -1;
+        // If there is only one valid piece, force selection (or auto-select)
+        // However, to keep it interactive, we show them the only option.
+        System.out.println("\n--- Your Turn ---");
+        System.out.println("Movable Piece(s): " + movablePieces);
+
+        while (true) {
+            System.out.print("Select a piece to move: ");
+            if (scanner.hasNextInt()) {
+                int input = scanner.nextInt();
+                // Validation: The input must be inside the movablePieces list
+                if (movablePieces.contains(input)) {
+                    selectedPiece = input;
+                    break; // Valid input, exit loop
+                } else {
+                    System.out.println("Invalid choice. You can only move: " + movablePieces);
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Consume invalid string input to prevent infinite loop
+            }
         }
 
-        
-
+    
+        // STEP 2: Choose WHERE to Move
        
-        for (int i = diceRoll - 1; i >= 1; i--) {
-            if (currentPositions[i] != -1) {
-                lowerOption = i;
-                break; 
+        List<Integer> validDestinations = GameState.generatePossibleMoves(selectedPiece, currentPositions);
+
+        int selectedDest = -1;
+
+        if (validDestinations.isEmpty()) {
+            System.out.println("Piece " + selectedPiece + " is blocked and cannot move.");
+            return currentPositions;
+        }
+
+        System.out.println("Possible destinations for Piece " + selectedPiece + ": " + validDestinations);
+
+        // If there's only one place to go, we can arguably just move it, 
+        // but let's ask the user to confirm to maintain "Human" control.
+        while (true) {
+            System.out.print("Select destination square: ");
+            if (scanner.hasNextInt()) {
+                int input = scanner.nextInt();
+                if (validDestinations.contains(input)) {
+                    selectedDest = input;
+                    break;
+                } else {
+                    System.out.println("Invalid move. Choose from: " + validDestinations);
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); 
             }
         }
 
+        currentPositions[selectedPiece] = selectedDest;
         
-        for (int i = diceRoll + 1; i <= 6; i++) {
-            if (currentPositions[i] != -1) {
-                higherOption = i;
-                break; 
-            }
-        }
-
-
-        // CASE A: Both options exist 
-        if (lowerOption != -1 && higherOption != -1) {
-            System.out.println("You can move piece " + lowerOption + " OR piece " + higherOption);
-            System.out.print("Enter your choice (" + lowerOption + " or " + higherOption + "): ");
-            
-            int choice = scanner.nextInt();
-            
-            // Simple validation loop to ensure they pick a valid option
-            while (choice != lowerOption && choice != higherOption) {
-                System.out.print("Invalid choice. Please enter " + lowerOption + " or " + higherOption + ": ");
-                choice = scanner.nextInt();
-            }
-            return choice;
-        }
+        System.out.println("Piece " + selectedPiece + " moved to " + selectedDest);
         
-        // CASE B: Only the smaller piece exists
-        else if (lowerOption != -1) {
-            System.out.println("Only smaller option available.");
-            System.out.println("Forced move: You must move piece " + lowerOption);
-            return lowerOption;
-        }
-        
-        // CASE C: Only the larger piece exists
-        else if (higherOption != -1) {
-            System.out.println("Only larger option available.");
-            System.out.println("Forced move: You must move piece " + higherOption);
-            return higherOption;
-        }
-
-        // CASE D: No moves possible (Should rarely happen in normal gameplay unless game over)
-        System.out.println("No valid moves available.");
-        return 0;
+        return currentPositions;
     }
 }
-    // ============================================================
-    // TODO: Implement chooseMove()
-    // ------------------------------------------------------------
-    // This method prompts the human player to choose the next move
-    //
-    // You may decide on the return type, parameters, and logic.
-    // ============================================================
-
-    // You may also add any other helper functions, variables,
-    // and constructors needed for your implementation.
