@@ -25,21 +25,22 @@ This project requires students to develop a simulator and solver for the single-
    (e) Fifth line onwards until last line, print out the position of the pieces after each move until the game ends.\
    
 3. GameState.java - generatePossibleMoves()\
-    (a)generatePossibleMoves()method is used to determine the possible moves for each piece.\
-    (b)It works by taking the piece input and using that input to calculate the steps that are movable while avoiding space 22\
-    (c)First,it detects if the pieces from dice roll are still on the board, it will calculate the closest two pieces
+   (a) generatePossibleMoves() method is used to determine the possible moves for each piece.\
+   (b) It works by taking the piece input and using that input to calculate the steps that are movable while avoiding space 22.\
+   (c) First, it detects if the pieces from dice roll are still on the board, it will calculate the closest two pieces
        in terms of bigger and smaller and outputs to user.\
-    (d)Calculation is then done by separating the piece position with mathematical equations into rows and columns and 
+   (d) Calculation is then done by separating the piece position with mathematical equations into rows and columns and 
        then its check with different conditions to ensure that the value is not out of bounds and does not interfere with the space 22.\
-    (e)All of the valid positions are then stored in a arraylist call moves.\
-5. GameState.java - isWinning() \
-    (a)isWinning() is used to check if the winning conditions are met.\
-    (b)If the current position of the pieces is at the "0" space, the system will output "You win!".\
-6. HumanPlayer.java - chooseMove()
-7. RandomPlayer.java - chooseMove()
-8. Player.java - printMove()
+   (e) All of the valid positions are then stored in a arraylist call moves.\
+   
+4. GameState.java - isWinning() \
+    (a) isWinning() is used to check if the winning conditions are met.\
+    (b) If the current position of the pieces is at the "0" space, the system will output "You win!".\
+5. HumanPlayer.java - chooseMove()
+6. RandomPlayer.java - chooseMove()
+7. Player.java - printMove()
 
-9. GameMain.java - main()\
+8. GameMain.java - main()\
    (a) gameMode() method was used to ask player to input the mode (Human Player, Random Player or AI Player).\
        To make it easy for the user to input, we define Human Player as 0, Random Player as 1 and AI Player as 2.\
        User only need to input the mode is either (0,1 or 2).\
@@ -58,13 +59,13 @@ This project requires students to develop a simulator and solver for the single-
 # Screenshots
 # Contribution
   1. Ooi Yong Zhe:
-     -Done major changes to GameState to refine and reduce redundancy within classes
+     - Done major changes to GameState to refine and reduce redundancy within classes
   3. Chew Jee Syuen:
      - Complete GameLoader part
      - Complete GameMain part
      - Write report
   4. Lim Kai Hern:
-     -Complete GameState part
+     - Complete GameState part
   5. Chaang Wai Chiu:
   6. Si Jun Tian:
 # Challenges faced
