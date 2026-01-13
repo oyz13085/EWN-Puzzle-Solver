@@ -11,6 +11,7 @@ public class GameMain {
     private static void gameMode() {
         System.out.println("Enter your game mode (Human = 0, Random = 1, AI = 2): ");
         mode = input.nextInt();
+        input.nextLine();
         switch (mode) {
             case 0:
                 System.out.println("Human Player");
