@@ -15,14 +15,8 @@ public class HumanPlayer extends Player {
         // --- STEP 1: SELECT PIECE ---
         int movingPiece = -1;
 
-        if (movablePieces.isEmpty()) {
-            System.out.println("No moves available.");
-            return currentPosition;
-        }
-
         if (movablePieces.size() == 1) {
             movingPiece = movablePieces.get(0);
-            System.out.println("You must move: " + movingPiece);
         } else {
             System.out.println("Available pieces to move: " + movablePieces);
             System.out.print("Enter piece number: ");
@@ -34,10 +28,12 @@ public class HumanPlayer extends Player {
                         movingPiece = input;
                         break;
                     }
-                    System.out.print("Invalid piece. Choose from " + movablePieces + ": ");
+                    else{
+                        System.out.print("Invalid piece. Choose from " + movablePieces + ": ");
+                    }
                 } else {
-                    scanner.next(); 
                     System.out.print("Please enter a number: ");
+                    scanner.next(); 
                 }
             }
         }
@@ -51,10 +47,10 @@ public class HumanPlayer extends Player {
             return currentPosition;
         }
 
-        System.out.println("Possible destinations for piece " + movingPiece + ": " + possibleMoves);
+        System.out.println("\n Possible destinations for piece " + movingPiece + ": " + possibleMoves);
         System.out.print("Enter destination square: ");
-
         while (true) {
+            
             if (scanner.hasNextInt()) {
                 int input = scanner.nextInt();
                 if (possibleMoves.contains(input)) {
@@ -67,6 +63,14 @@ public class HumanPlayer extends Player {
                 System.out.print("Please enter a number: ");
             }
         }
+
+        for (int i = 1; i<currentPosition.length; i++) {
+            if (i != movingPiece && currentPosition[i] == moveChosen) {
+                System.out.println("Capturing piece " + i + "!");
+                currentPosition[i] = -1; 
+            }
+        }
+
 
         // Step 3: Update Position
         System.out.println("Moving Piece " + movingPiece + " to " + moveChosen);
