@@ -37,6 +37,10 @@ This project requires students to develop a simulator and solver for the single-
     (a) isWinning() is used to check if the winning conditions are met.\
     (b) If the current position of the pieces is at the "0" space, the system will output "You win!".
 5. HumanPlayer.java - chooseMove()
+    (a) Extends the Player class to handle move selection for a human player. \
+    (b) Scanner reads input from the terminal then fetches valid moves from GameState.generatePossibleMoves() \
+    (c) Outputs movable pieces, current position and returns current position after player makes a move. \
+    (d) 
 6. RandomPlayer.java - chooseMove()
    (a) Purpose: Extends the Player class to handle move selection for the random player.
    (b) Core Logic:
@@ -73,6 +77,7 @@ This project requires students to develop a simulator and solver for the single-
   4. Lim Kai Hern:
      - Complete GameState part
   5. Chaang Wai Chiu:
+     - Complete HumanPlayer part
   6. Si Jun Tian:
      -Complete RandomPlayer part
 # Challenges faced
