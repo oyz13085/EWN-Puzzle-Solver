@@ -3,80 +3,75 @@ import java.util.Scanner;
 
 public class HumanPlayer extends Player {
 
-    // Scanner object to read input from the terminal
     private Scanner scanner;
 
     public HumanPlayer() {
         this.scanner = new Scanner(System.in);
     }
 
-    
-    public int[] chooseMove(List<Integer> movablePieces, int[] currentPositions) {
+    @Override
+    public int[] chooseMove(List<Integer> movablePieces, int[] currentPosition) {
         
-        int selectedPiece = -1;
+        // --- STEP 1: SELECT PIECE ---
+        int movingPiece = -1;
 
         if (movablePieces.isEmpty()) {
-            System.out.println("No movable pieces available. Skipping turn.");
-            return currentPositions;
+            System.out.println("No moves available.");
+            return currentPosition;
         }
 
-        
-        System.out.println("\n Your Turn ");
-        System.out.println("Movable Pieces: " + movablePieces);
+        if (movablePieces.size() == 1) {
+            movingPiece = movablePieces.get(0);
+            System.out.println("You must move: " + movingPiece);
+        } else {
+            System.out.println("Available pieces to move: " + movablePieces);
+            System.out.print("Enter piece number: ");
 
-        while (true) {
-            System.out.print("Select a piece to move: ");
-            if (scanner.hasNextInt()) {
-                int input = scanner.nextInt();
-                
-                if (movablePieces.contains(input)) {
-                    selectedPiece = input;
-                    break; // Valid input, exit loop
+            while (true) {
+                if (scanner.hasNextInt()) {
+                    int input = scanner.nextInt();
+                    if (movablePieces.contains(input)) {
+                        movingPiece = input;
+                        break;
+                    }
+                    System.out.print("Invalid piece. Choose from " + movablePieces + ": ");
                 } else {
-                    System.out.println("Invalid choice. You can only move: " + movablePieces);
+                    scanner.next(); 
+                    System.out.print("Please enter a number: ");
                 }
-            } else {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next(); // Consume invalid string input to prevent infinite loop
             }
         }
 
-    
-        // STEP 2: Choose WHERE to Move
-       
-        List<Integer> validDestinations = GameState.generatePossibleMoves(selectedPiece, currentPositions);
+        // --- STEP 2: SELECT DESTINATION ---
+        List<Integer> possibleMoves = GameState.generatePossibleMoves(movingPiece, currentPosition);
+        int moveChosen = -1;
 
-        int selectedDest = -1;
-
-        if (validDestinations.isEmpty()) {
-            System.out.println("Piece " + selectedPiece + " is blocked and cannot move.");
-            return currentPositions;
+        if (possibleMoves.isEmpty()) {
+            System.out.println("Piece " + movingPiece + " has no valid moves.");
+            return currentPosition;
         }
 
-        System.out.println("Possible destinations for Piece " + selectedPiece + ": " + validDestinations);
+        System.out.println("Possible destinations for piece " + movingPiece + ": " + possibleMoves);
+        System.out.print("Enter destination square: ");
 
-        // If there's only one place to go, we can arguably just move it, 
-        // but let's ask the user to confirm to maintain "Human" control.
         while (true) {
-            System.out.print("Select destination square: ");
             if (scanner.hasNextInt()) {
                 int input = scanner.nextInt();
-                if (validDestinations.contains(input)) {
-                    selectedDest = input;
+                if (possibleMoves.contains(input)) {
+                    moveChosen = input;
                     break;
-                } else {
-                    System.out.println("Invalid move. Choose from: " + validDestinations);
                 }
+                System.out.print("Invalid move. Choose from " + possibleMoves + ": ");
             } else {
-                System.out.println("Invalid input. Please enter a number.");
                 scanner.next(); 
+                System.out.print("Please enter a number: ");
             }
         }
 
-        currentPositions[selectedPiece] = selectedDest;
-        
-        System.out.println("Piece " + selectedPiece + " moved to " + selectedDest);
-        
-        return currentPositions;
+        // Step 3: Update Position
+        System.out.println("Moving Piece " + movingPiece + " to " + moveChosen);
+        currentPosition[movingPiece] = moveChosen;
+
+        return currentPosition;
     }
 }
