@@ -17,6 +17,7 @@ public class HumanPlayer extends Player {
 
         if (movablePieces.size() == 1) {
             movingPiece = movablePieces.get(0);
+            System.out.println("Piece" + movingPiece + "is at position " + currentPosition[movingPiece]);
         } else {
             System.out.println("Available pieces to move: " + movablePieces);
             System.out.print("Enter piece number: ");
