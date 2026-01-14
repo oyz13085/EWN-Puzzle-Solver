@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,10 +15,12 @@ public class HumanPlayer extends Player {
         
         // --- STEP 1: SELECT PIECE ---
         int movingPiece = -1;
+        System.out.println("\nAll position of pieces: "+ Arrays.toString(currentPosition));
 
         if (movablePieces.size() == 1) {
             movingPiece = movablePieces.get(0);
-            System.out.println("Piece" + movingPiece + "is at position " + currentPosition[movingPiece]);
+            
+            System.out.println("Piece " + movingPiece + "  is at position " + currentPosition[movingPiece]);
         } else {
             System.out.println("Available pieces to move: " + movablePieces);
             System.out.print("Enter piece number: ");
@@ -48,7 +51,7 @@ public class HumanPlayer extends Player {
             return currentPosition;
         }
 
-        System.out.println("\n Possible destinations for piece " + movingPiece + ": " + possibleMoves);
+        System.out.println("\nPossible destinations for piece " + movingPiece + ": " + possibleMoves);
         System.out.print("Enter destination square: ");
         while (true) {
             
