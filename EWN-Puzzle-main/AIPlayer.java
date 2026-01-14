@@ -69,6 +69,7 @@ public class AIPlayer extends Player {
                     currentPosition[i] = -1; // Capture!
                 }
             }
+            
         }
 
         turnCounter++;

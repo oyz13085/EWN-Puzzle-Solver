@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.List;
 
 public class GameMain {
     static int mode, selectedLevel;
@@ -66,9 +67,27 @@ public class GameMain {
 
         for (int i = 0; i < 30 && !state.isWinning(); i++) {
             int diceRoll = loader.getDiceRoll(i);
-            state.updatePositions(player.chooseMove(state.generatePossiblePieces(diceRoll), state.getCurrentPositions())); 
-            System.out.println("\nCurrent positions: " + Arrays.toString(state.getCurrentPositions()));
-            player.printMove(state.getCurrentPositions());
+            List<Integer> possiblePieces = state.generatePossiblePieces(diceRoll);
+            int[] currentPositions = state.getCurrentPositions();
+            int[] visiblePositions = new int[6];
+
+            for (int j = 0; j < 6; j++) {
+                visiblePositions[j] = currentPositions[j + 1];
+            }
+
+            state.updatePositions(player.chooseMove(possiblePieces, currentPositions));
+            
+            System.out.println("\nTurn #" + (i+1));
+            System.out.println("Current positions: " + Arrays.toString(visiblePositions));
+            System.out.println("Moveable pieces are " + possiblePieces);
+
+            for (int j = 0; j < 6; j++) {
+                if(visiblePositions[j] != state.getCurrentPositions()[j+1] && state.getCurrentPositions()[j+1] != -1){
+                    System.out.println("Piece " +  (j+1) + " moves to " + state.getCurrentPositions()[j+1]);
+                }
+            }
+            
+            player.printMove(currentPositions);
 
         }
 
@@ -79,9 +98,9 @@ public class GameMain {
         getLevel(); // set up the states of the level
         mainGame(mode);
         if (state.isWinning()) {
-            System.out.println("Congratulations! You win!");
+            System.out.println("\nCongratulations! You win!");
         } else {
-            System.out.println("Game Over! You lose!");
+            System.out.println("\nGame Over! You lose!");
         }
     }
 }

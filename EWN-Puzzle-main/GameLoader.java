@@ -27,6 +27,7 @@ public class GameLoader {
 
     public int[] getInitialPosition(){
         int[] answer = new int[7];
+        answer[0] = 0;
         for(int i=1;i<7;i++){
             answer[i] = initialPosition[i-1];
         }

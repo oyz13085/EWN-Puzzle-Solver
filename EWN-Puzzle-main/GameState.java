@@ -3,7 +3,7 @@ import java.util.List;
 
 public class GameState {
 
-    public int[] piecePositions = new int[7];
+    public int[] piecePositions;
     public int targetPiece;
 
     public GameState(int[] positions, int target) {
@@ -23,10 +23,13 @@ public class GameState {
     public boolean isWinning() {
         int currentPos = piecePositions[targetPiece];
         if (currentPos == 0) {
-            System.out.println("You win!");
             return true;
+        }else if(currentPos == -1){
+            return true;
+        }else{
+            return false;
         }
-        return false;
+        
     }
 
     public List<Integer> generatePossiblePieces(int diceRoll) {
@@ -48,7 +51,6 @@ public class GameState {
                 }
             }
         }
-        System.out.print("Movable pieces are " + answer);
         return answer;
     }
 
