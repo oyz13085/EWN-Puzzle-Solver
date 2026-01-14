@@ -74,6 +74,10 @@ public class GameMain {
             for (int j = 0; j < 6; j++) {
                 visiblePositions[j] = currentPositions[j + 1];
             }
+            
+            System.out.println("\nTurn #" + (i+1));
+            System.out.println("Current positions: " + Arrays.toString(visiblePositions));
+            System.out.println("Moveable pieces are " + possiblePieces);
 
             state.updatePositions(player.chooseMove(possiblePieces, currentPositions));
 
@@ -81,10 +85,6 @@ public class GameMain {
                 System.out.println("Target piece captured! You Lose!");
                 break;
             }
-            
-            System.out.println("\nTurn #" + (i+1));
-            System.out.println("Current positions: " + Arrays.toString(visiblePositions));
-            System.out.println("Moveable pieces are " + possiblePieces);
 
             for (int j = 0; j < 6; j++) {
                 if(visiblePositions[j] != state.getCurrentPositions()[j+1] && state.getCurrentPositions()[j+1] != -1){
