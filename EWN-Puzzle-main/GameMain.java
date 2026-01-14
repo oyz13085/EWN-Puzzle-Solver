@@ -1,6 +1,6 @@
-import java.util.Scanner;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class GameMain {
     static int mode, selectedLevel;
@@ -76,6 +76,11 @@ public class GameMain {
             }
 
             state.updatePositions(player.chooseMove(possiblePieces, currentPositions));
+
+            if (state.getCurrentPositions()[state.targetPiece] == -1) {
+                System.out.println("Target piece captured! You Lose!");
+                break;
+            }
             
             System.out.println("\nTurn #" + (i+1));
             System.out.println("Current positions: " + Arrays.toString(visiblePositions));

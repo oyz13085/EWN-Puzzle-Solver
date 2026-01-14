@@ -25,7 +25,7 @@ public class GameState {
         if (currentPos == 0) {
             return true;
         }else if(currentPos == -1){
-            return true;
+            return false;
         }else{
             return false;
         }

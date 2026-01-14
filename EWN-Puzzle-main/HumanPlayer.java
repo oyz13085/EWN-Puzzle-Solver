@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,7 +14,7 @@ public class HumanPlayer extends Player {
         
         // --- STEP 1: SELECT PIECE ---
         int movingPiece = -1;
-        System.out.println("\nAll position of pieces: "+ Arrays.toString(currentPosition));
+        
 
         if (movablePieces.size() == 1) {
             movingPiece = movablePieces.get(0);
