@@ -133,6 +133,12 @@ java -jar EWN_GUI.jar
 ```
 
 # User guide / How to play
+1. Choose your gamemode (0 for Human Player, 1 for Random Player and 2 for AI Player).
+2. If Human Player is chosen, enter the name of the Player.
+3. For Random Player and AI Player, moves will be chosen automatically.
+4. For Human Player, users are required to enter their desired piece (if avaliable) and moves).
+5. In the end, the system will show whether the user has won the game.
+
 # Screenshots (Test Run)
 1. Human Player \
    (a) Level 1
