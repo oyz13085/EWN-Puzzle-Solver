@@ -111,7 +111,7 @@ Thus, **Beam Search** is used as there is a move limit and time limit for the AI
 <img width="726" height="1072" alt="image" src="https://github.com/user-attachments/assets/d8d4bf60-bf24-4b0a-a809-f83e1e9d7767" />
 
 
-# How to compile and run
+# Compilation and Run
 1. Change your terminal directory to the folder EWN-Puzzle-main
 ```
 cd .\EWN-Puzzle-main\
@@ -132,7 +132,7 @@ java GameMain
 java -jar EWN_GUI.jar
 ```
 
-# User guide / How to play
+# User Guide
 1. Choose your gamemode (0 for Human Player, 1 for Random Player and 2 for AI Player).
 2. If Human Player is chosen, enter the name of the Player.
 3. For Random Player and AI Player, moves will be chosen automatically.
