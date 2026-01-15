@@ -64,6 +64,14 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
 | **RandomPlayer** | Responsible for creating the random logic to solve the puzzle. |
 | **AIPlayer** | Responsible for finding the most optimal solution for the puzzle using Beam Search. |
 
+## Module Interaction Table
+|Interaction|Moudle A|Module B|Purpose|
+|:---|:---|
+|**Data Flow**|`GameLoader`|`GameMain`|Passes level data and dice sequences to the main loop.|
+|**Validation**|`GameState`|`AIPlayer`|AI uses the logic in `GameState` to simulate future moves without breaking rules.|
+|**Output**|`Player`|`moves.txt`|Every player type uses the same method to ensure the move log is consistent.|
+|**Control**|`GameMain`|`GameState`|Main triggers the winning check after every move.|
+
 # How to compile and run
 1. Change your terminal directory to the folder EWN-Puzzle-main
 ```
