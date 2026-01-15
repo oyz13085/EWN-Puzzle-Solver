@@ -1,6 +1,6 @@
 # WIX1002 FUNDAMENTALS OF PROGRAMMING - TOPIC 6: EinStein  würfelt nicht! Puzzle Solver 
 # Project Overview
-##Introduction\
+## Introduction
 In 1926, Albert Einstein challenged the scientific world with a single sentence: "I am convinced that He (God) does not play dice."
 
 This Java project brings that philosophy to life. We are reimagining the board game EinStein würfelt nicht by removing the element of chance entirely. By replacing the roll of the dice with fixed, pre-determined sequences, we have converted a game of probability into a rigorous test of logic and planning.
