@@ -72,6 +72,38 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
 |**Output**|`Player`|`moves.txt`|Every player type uses the same method to ensure the move log is consistent.|
 |**Control**|`GameMain`|`GameState`|Main triggers the winning check after every move.|
 
+## AI Strategy: Beam Search Detail
+**Beam Search** is a heuristic search algorithm that explores a search space by keeping only a limited number of the most promising "candidates" or "paths" at each level. 
+
+**How It Works**
+Beam Search utilizes a parameter called **Beam Width (*k*)**. This number determines how many partial paths the algorithm "remembers" at any given time.
+1) **Initialization**: Start at the beginning (Square 0) and generate all possible next moves.
+2) **Expansion**: For every path currently tracking, generate all possible successor moves.
+3) **Scoring**: Use a **Heuristic Function** to assign a score to every new path. The function used is shown below:
+```math
+*Score = (D x 100) + E*
+```
+* $D$ (**Chebyshev Distance**):  Calculated as $max(\Delta x, \Delta y)$ from the target piece to $(0,0)$. This accounts for diagonal moves.
+* $E$ (**Enemy Count**): A small penalty for each remaining enemy piece, encouraging the AI to capture obstacles if they block the path.
+* **Safety Trigger**: If the target piece is captured in a simulated state, that state is assigned a score of $\infty$ and immediately discarded.
+
+4) **Pruning**: Sort all the paths by their scores and keep only the top $k$ paths. Discard the rest.
+5) **Repeat**: Continue expanding and pruning until the goal or the move limit is reached.
+
+**Beam Search vs Other Algorithm**
+|Feature|Greedy Algorithm|Beam Search|BFS(Breadth-First Search)|
+|:---|:---|:---|:---|
+|**Search Width**|1 (The Very Best)|k (The Top k Best)|$\infty$ (Every single move)|
+|**Memory Usage**|Very Low|Low to Moderate|Extremely High|
+|**Optimality**|Rarely optimal|Likely sub-optimal|Guaranteed optimal|
+|**Speed**|Fastest|Fast|Slowest|
+
+Thus, **Beam Search** is used as there is a move limit and time limit for the AI Player. Since the dice rolls are fixed, Beam Search can look several moves ahead and get the best move. The only downside is that if the optimal solution starts with a "bad-looking" path, it might delete the path at the start and fail to find the optimal path.
+
+## Flow Chart
+<img width="726" height="1072" alt="image" src="https://github.com/user-attachments/assets/d8d4bf60-bf24-4b0a-a809-f83e1e9d7767" />
+
+
 # How to compile and run
 1. Change your terminal directory to the folder EWN-Puzzle-main
 ```
@@ -95,20 +127,4 @@ java -jar EWN_GUI.jar
 
 # User guide / How to play
 # Screenshots
-# Contribution
-  1. Ooi Yong Zhe:
-     - Done major changes to GameState to refine and reduce redundancy within classes
-  3. Chew Jee Syuen:
-     - Complete GameLoader part
-     - Complete GameMain part
-     - Write report
-  4. Lim Kai Hern:
-     - Complete GameState part
-     - Refine Read me 
-     - Write report
-  5. Chaang Wai Chiu:
-     - Complete HumanPlayer part
-  6. Si Jun Tian:
-     -Complete RandomPlayer part
-# Challenges faced
-  
+
