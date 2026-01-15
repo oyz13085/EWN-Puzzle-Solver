@@ -174,15 +174,19 @@ java -jar EWN_GUI.jar
 3. AI Player\
    (a) Level 1 (Extra Feature: Solved within 6 moves)\
    <img width="935" height="560" alt="image" src="https://github.com/user-attachments/assets/579ca9d5-daf5-4d8c-bd6a-009b8a5747c7" />
+   <img width="940" height="213" alt="image" src="https://github.com/user-attachments/assets/e5d5afb7-7b5d-4011-b801-03f887302031" />
    <img width="940" height="551" alt="image" src="https://github.com/user-attachments/assets/931a557e-ccd3-4b64-8553-f976197f1a8f" />\
    (b) Level 2 (Extra Feature: Solved within 10 moves)\
    <img width="932" height="512" alt="image" src="https://github.com/user-attachments/assets/54645640-8bd2-418f-ba68-20ed3de4d58a" />
+   <img width="940" height="228" alt="image" src="https://github.com/user-attachments/assets/506d3d6d-2e83-47b0-b3ca-8d1b0ade845d" />
    <img width="940" height="551" alt="image" src="https://github.com/user-attachments/assets/51e3de34-6ed5-45b8-b034-44094bb46028" />\
    (c) Level 3 (Extra Feature: Solved within 10 moves)\
    <img width="907" height="496" alt="image" src="https://github.com/user-attachments/assets/0cabf11a-094b-432a-b894-4e0c9948cf4a" />
+   <img width="940" height="222" alt="image" src="https://github.com/user-attachments/assets/c789b0cb-9a64-4724-98ad-2f4af5dc1d63" />
    <img width="940" height="549" alt="image" src="https://github.com/user-attachments/assets/e63f35af-b442-439f-8733-7939b09bd1cd" />\
    (d) Level 4 (Extra Feature: Solved within 15 moves)\
    <img width="918" height="504" alt="image" src="https://github.com/user-attachments/assets/b703f02d-fe8c-457e-88c3-eb62056c180d" />
+   <img width="940" height="239" alt="image" src="https://github.com/user-attachments/assets/2455e9a3-5984-470b-ac01-325befe46431" />
    <img width="940" height="550" alt="image" src="https://github.com/user-attachments/assets/1f64e461-cfd2-448c-8ea9-f87b40b07011" />
 
 
