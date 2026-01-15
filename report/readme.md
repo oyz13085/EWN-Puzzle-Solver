@@ -66,7 +66,7 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
 
 ## Module Interaction Table
 |Interaction|Moudle A|Module B|Purpose|
-|:---|:---|
+|:---|:---|:---|:---|
 |**Data Flow**|`GameLoader`|`GameMain`|Passes level data and dice sequences to the main loop.|
 |**Validation**|`GameState`|`AIPlayer`|AI uses the logic in `GameState` to simulate future moves without breaking rules.|
 |**Output**|`Player`|`moves.txt`|Every player type uses the same method to ensure the move log is consistent.|
