@@ -13,6 +13,11 @@ public class RandomPlayer extends Player{
 
     @Override
     public int[] chooseMove(List<Integer> possiblePieces,int[] currentPosition){
+        
+        if(currentPosition == null){
+            System.out.println("[RandomPlayer]Current position is null,skip this turn.");
+            return new int[7];
+        }
         int[] newPositions = currentPosition.clone();
 
         if(possiblePieces == null || possiblePieces.isEmpty()){
@@ -30,6 +35,13 @@ public class RandomPlayer extends Player{
         }
         int selectedDestIndex = random.nextInt(possibleMoves.size());
         int selectedDest = possibleMoves.get(selectedDestIndex);
+
+        for(int i = 1;i < 7;i++){
+            if (i != selectedPiece && newPositions[i] == selectedDest){
+                newPositions[i] = -1;
+                System.out.println("[RandomPlayer]Captured piece"+i+"at position"+selectedDest);
+            }
+        }
 
         newPositions[selectedPiece] = selectedDest;
         
