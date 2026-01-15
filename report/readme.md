@@ -170,8 +170,29 @@ java -jar EWN_GUI.jar
    <img width="936" height="523" alt="image" src="https://github.com/user-attachments/assets/22b9062a-3627-4a69-a5ec-426184d7e9aa" />
    <img width="940" height="552" alt="image" src="https://github.com/user-attachments/assets/83d3be28-f606-4255-8879-d5f7b9d4f639" />
 
-2. Random Player
-3. AI Player\
+2. Random Player\
+   (a) Level 1
+   <img width="931" height="484" alt="image" src="https://github.com/user-attachments/assets/ba29312c-4836-4c43-830c-fe57b34c8a0f" />
+   <img width="940" height="551" alt="image" src="https://github.com/user-attachments/assets/4fc84321-e0a0-49f4-b65a-cbc65b60f382" />\
+   (b) Level 2
+   <img width="916" height="514" alt="image" src="https://github.com/user-attachments/assets/e8ce2153-7acf-4e02-995d-0a8ad810499f" />
+   <img width="940" height="552" alt="image" src="https://github.com/user-attachments/assets/d8cc7997-c8dd-453b-a369-efa5e9d005a6" />\
+   (c) Level 3
+   <img width="940" height="535" alt="image" src="https://github.com/user-attachments/assets/f85b89a5-e85e-4a8c-bf4f-de1648ec1e74" />
+   <img width="940" height="550" alt="image" src="https://github.com/user-attachments/assets/ffd1f847-508f-416b-9eac-8f535c909092" />\
+   (d) Level 4
+   <img width="940" height="592" alt="image" src="https://github.com/user-attachments/assets/ff45598e-8d82-437b-b075-9844768a22ed" />
+   <img width="940" height="553" alt="image" src="https://github.com/user-attachments/assets/c7dcc940-670a-409c-8248-c79f9533aef0" />
+
+
+   
+
+
+
+
+
+
+4. AI Player\
    (a) Level 1 (Extra Feature: Solved within 6 moves)\
    <img width="935" height="560" alt="image" src="https://github.com/user-attachments/assets/579ca9d5-daf5-4d8c-bd6a-009b8a5747c7" />
    <img width="940" height="213" alt="image" src="https://github.com/user-attachments/assets/e5d5afb7-7b5d-4011-b801-03f887302031" />
