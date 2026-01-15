@@ -22,7 +22,7 @@ public class RandomPlayer extends Player{
         int selectedPieceIndex = random.nextInt(possiblePieces.size());
         int selectedPiece = possiblePieces.get(selectedPieceIndex);
 
-        List<Integer> possibleMovea = GameState.generatePossibleMoves(selectedPiece,newPositions);
+        List<Integer> possibleMoves = GameState.generatePossibleMoves(selectedPiece,newPositions);
 
         if (possibleMoves == null || possibleMoves.isEmpty()){
             System.out.println("[RandomPlayer]Piece"+selectedPiece+"No legal moves available,skip this turn.");
@@ -32,10 +32,6 @@ public class RandomPlayer extends Player{
         int selectedDest = possibleMoves.get(selectedDestIndex);
 
         newPositions[selectedPiece] = selectedDest;
-
-        System.out.println("[RandomPlayer]Execution of move successful:piece"+selectedPiece
-            +"from position"+currentPosition[selectedPiece]
-            +"to position"+selectedDest);
         
         return newPositions;
     }

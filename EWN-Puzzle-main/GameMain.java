@@ -56,7 +56,7 @@ public class GameMain {
                 player = new HumanPlayer();
                 break;
             case 1:
-                player = new AIPlayer();
+                player = new RandomPlayer();
                 break;
             case 2: // AI
                 player = new AIPlayer();
@@ -81,18 +81,18 @@ public class GameMain {
 
             state.updatePositions(player.chooseMove(possiblePieces, currentPositions));
 
-            if (state.getCurrentPositions()[state.targetPiece] == -1) {
-                System.out.println("Target piece captured! You Lose!");
-                break;
-            }
-
             for (int j = 0; j < 6; j++) {
                 if(visiblePositions[j] != state.getCurrentPositions()[j+1] && state.getCurrentPositions()[j+1] != -1){
                     System.out.println("Piece " +  (j+1) + " moves to " + state.getCurrentPositions()[j+1]);
                 }
             }
             
-            player.printMove(currentPositions);
+            player.printMove(state.getCurrentPositions());
+
+            if (state.getCurrentPositions()[state.targetPiece] == -1) {
+                System.out.println("Target piece captured! You Lose!");
+                break;
+            }
 
         }
 
