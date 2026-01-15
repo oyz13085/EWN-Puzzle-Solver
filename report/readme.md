@@ -9,40 +9,40 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
 
 ## Basic Requirements
 1. System Initialization and Data Handling
-   (a) GameLoader class (Constructor) - Required to obtain game data from external files and initialize the necessary data.
-   (b) GameLoader class (printGameDetails() method) - Static method, required to output the initial game configuration into moves.txt.
+   * GameLoader class (Constructor) - Required to obtain game data from external files and initialize the necessary data.
+   * GameLoader class (printGameDetails() method) - Static method, required to output the initial game configuration into moves.txt.
 
 2. Core Game Logic and State Management
-   (a) GameState class (generatePossibleMoves() method) - Required to calculate all valid movements by the piece based on its current position.
-   (b) GameState class (isWinning() method) - Required to check whether the target piece has reached "Square 0" successfully.
+   * GameState class (generatePossibleMoves() method) - Required to calculate all valid movements by the piece based on its current position.
+   * GameState class (isWinning() method) - Required to check whether the target piece has reached "Square 0" successfully.
 
 3. Player Implementation and Decision Making
-   (a) abstract Player class (printMove() method) - An abstract method that has shared functionality across every player, which logs every move into moves.txt.
-   (b) HumanPlayer class (chooseMove() method) - Required to receive manual input, allowing users to select moves.
-   (c) RandomPlayer class (chooseMove() method) - Required to select a move randomly.
+   * abstract Player class (printMove() method) - An abstract method that has shared functionality across every player, which logs every move into moves.txt.
+   * HumanPlayer class (chooseMove() method) - Required to receive manual input, allowing users to select moves.
+   * RandomPlayer class (chooseMove() method) - Required to select a move randomly.
 
 4. Main Application Control
-   (a) GameMain class (main() method) - Required to prompt users to select game mode (Human, Random or AI).
-   (b) GameMain class (main() method) - Required for instantiation of chosen player type and executes move selection process.
-   (c) GameMain class (main() method) - Required to output the final results, whether the user won or lost the game.
+   * GameMain class (main() method) - Required to prompt users to select game mode (Human, Random or AI).
+   * GameMain class (main() method) - Required for instantiation of chosen player type and executes move selection process.
+   * GameMain class (main() method) - Required to output the final results, whether the user won or lost the game.
 
 ## Added Features (Approach to the Problem)
 1. GameLoader class
-   (a) getInitialPosition() method - Non-static method, used to get the initial position without the need to reaccess the file.
-   (b) getTargetPiece() method - Non-static method, used to get the target piece without the need to reaccess the file.
-   (c) getDiceRoll() method - Non-static method, used to get the current dice roll without the need to reaccess the file.
+   * getInitialPosition() method - Non-static method, used to get the initial position without the need to reaccess the file.
+   * getTargetPiece() method - Non-static method, used to get the target piece without the need to reaccess the file.
+   * getDiceRoll() method - Non-static method, used to get the current dice roll without the need to reaccess the file.
 
 2. GameState class
-   (a) Constructor - Used to initialise the current piece positions and the target piece into the instance.
-   (b) getCurrentPositions() method - Non-static method, used to get the current positions after each update.
-   (c) updatePositions() method - Non-static method, used to update the positions after moving.
-   (d) generatePossiblePieces() method - Non-static method, used to obtain possible movable pieces under certain circumstances.
+   * Constructor - Used to initialise the current piece positions and the target piece into the instance.
+   * getCurrentPositions() method - Non-static method, used to get the current positions after each update.
+   * updatePositions() method - Non-static method, used to update the positions after moving.
+   * generatePossiblePieces() method - Non-static method, used to obtain possible movable pieces under certain circumstances.
 
 3. GameMain class
-   (a) gameMode() method - Static method, used to obtain game mode and player name (Human Player).
-   (b) getLevel() method - Static method, used to obtain the chosen level and initialise the whole game system.
-   (c) mainGame() method - Static method, used for the instantiation of the chosen player and handles game logic.
-   (d) humanName() method - Static method, used to obtain the human player name.
+   * gameMode() method - Static method, used to obtain game mode and player name (Human Player).
+   * getLevel() method - Static method, used to obtain the chosen level and initialise the whole game system.
+   * mainGame() method - Static method, used for the instantiation of the chosen player and handles game logic.
+   * humanName() method - Static method, used to obtain the human player name.
 
 ## Extra Features
 1. Level 1
@@ -53,22 +53,16 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
 
 # Solution
 ## Module Overview (Class Structure)
-|Module|Description|
----
-|GameMain|The main class. Responsible for user input, player selection, and the primary game loop.|
----
-|GameLoader|Handles initial external file I/O. Responsible for reading level configurations and ensuring all initial data is loaded into memory.|
----
-|GameState|Handles logic and rules. Responsible for validating valid moves and detecting the win condition.|
----
-|Player (Abstract)|The blueprint for all classes of players, ensuring the same logic for logging to moves.txt|
----
-|HumanPlayer|Responsible for creating the prompt for the user to choose their moves.|
----
-|RandomPlayer|Responsible for creating the random logic to solve the puzzle.|
----
-|AIPlayer|Responsible for finding the most optimal solution for the puzzle using Beam Search.|
----
+
+| Module | Description |
+| :--- | :--- |
+| **GameMain** | The main class. Responsible for user input, player selection, and the primary game loop. |
+| **GameLoader** | Handles initial external file I/O. Responsible for reading level configurations and ensuring all initial data is loaded into memory. |
+| **GameState** | Handles logic and rules. Responsible for validating valid moves and detecting the win condition. |
+| **Player (Abstract)** | The blueprint for all classes of players, ensuring the same logic for logging to `moves.txt`. |
+| **HumanPlayer** | Responsible for creating the prompt for the user to choose their moves. |
+| **RandomPlayer** | Responsible for creating the random logic to solve the puzzle. |
+| **AIPlayer** | Responsible for finding the most optimal solution for the puzzle using Beam Search. |
 
 # How to compile and run
 1. Change your terminal directory to the folder EWN-Puzzle-main
