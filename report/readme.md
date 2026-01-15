@@ -7,9 +7,12 @@
     5. SI JUN TIAN (25068553)
 # Project Overview
 Introduction\
-This project requires students to develop a simulator and solver for the single-player EinStein würfelt nicht variant puzzle using Java. Originally conceptualized by Professor Ingo Althöfer, the game gets its name from Albert Einstein’s famous 1926 declaration, "I am convinced that He (God) does not play dice," a critique of the randomness inherent in quantum mechanics. While the traditional game uses dice to drive gameplay, this project implements a deterministic single-player variant. In this version, the dice rolls are replaced by fixed sequences which transform the game from a test of probability into a complex logic puzzle. The board size for this puzzle is in 10 x 10 grid where pieces move according to "King-style" mechanics. The primary objective is to maneuver the target piece to square 0 within limited number of moves which is 30 moves, navigating around static obstacles and utilizing strategic captures.
+In 1926, Albert Einstein challenged the scientific world with a single sentence: "I am convinced that He (God) does not play dice."\
 
-# Features Implemented
+This Java project brings that philosophy to life. We are reimagining the board game EinStein würfelt nicht by removing the element of chance entirely. By replacing the roll of the dice with fixed, pre-determined sequences, we have converted a game of probability into a rigorous test of logic and planning.\
+
+The Challenge Players must navigate a target piece across a 10x10 grid using King-style movements. The board is laden with obstacles, and the clock is ticking: the solver must reach Square 0 in under 30 moves. This requires not just gameplay, but the implementation of efficient pathfinding algorithms to master the deterministic chaos.
+
 # Basic Features
 1. GameLoader.java - Constructor\
    (a) Constructor is created to read data from the given filename (level1.txt, level2.txt, level3.txt and level4.txt).\
