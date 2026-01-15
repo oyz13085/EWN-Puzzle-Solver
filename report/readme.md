@@ -45,11 +45,16 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
    * humanName() method - Static method, used to obtain the human player name.
 
 ## Extra Features
-1. Level 1
-2. Level 2
-3. Level 3
-4. Level 4
-(will talk about what restrictions, what algorithm used, and the performance)
+Design and implement our own logic (chooseMove() method) to automatically solve the given EWN puzzle under certain constraints.
+
+| Level | Maximum Moves |
+| :--- | :--- |
+| **Level 1** | 6 |
+| **Level 2** | 10 |
+| **Level 3** | 10 |
+| **Level 4** | 15 |
+
+Each level have to be solved **under 15 seconds**.
 
 # Solution
 ## Module Overview (Class Structure)
@@ -64,7 +69,49 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
 | **RandomPlayer** | Responsible for creating the random logic to solve the puzzle. |
 | **AIPlayer** | Responsible for finding the most optimal solution for the puzzle using Beam Search. |
 
-# How to compile and run
+## Module Interaction Table
+|Interaction|Moudle A|Module B|Purpose|
+|:---|:---|:---|:---|
+|**Data Flow**|`GameLoader`|`GameMain`|Passes level data and dice sequences to the main loop.|
+|**Validation**|`GameState`|`AIPlayer`|AI uses the logic in `GameState` to simulate future moves without breaking rules.|
+|**Output**|`Player`|`moves.txt`|Every player type uses the same method to ensure the move log is consistent.|
+|**Control**|`GameMain`|`GameState`|Main triggers the winning check after every move.|
+
+## AI Strategy: Beam Search Detail
+**Beam Search** is a heuristic search algorithm that explores a search space by keeping only a limited number of the most promising "candidates" or "paths" at each level. 
+
+**How It Works**
+Beam Search utilizes a parameter called **Beam Width (*k*)**. This number determines how many partial paths the algorithm "remembers" at any given time.
+1) **Initialization**: Start at the beginning (Square 0) and generate all possible next moves.
+2) **Expansion**: For every path currently tracking, generate all possible successor moves.
+3) **Scoring**: Use a **Heuristic Function** to assign a score to every new path. The function used is shown below:
+```math
+Score = (D * 100) + E
+```
+* $D$ (**Chebyshev Distance**):  Calculated as $max(\Delta x, \Delta y)$ from the target piece to $(0,0)$. This accounts for diagonal moves.
+* $E$ (**Enemy Count**): A small penalty for each remaining enemy piece, encouraging the AI to capture obstacles if they block the path.
+* **Safety Trigger**: If the target piece is captured in a simulated state, that state is assigned a score of $\infty$ and immediately discarded.
+
+4) **Pruning**: Sort all the paths by their scores and keep only the top $k$ paths. Discard the rest.
+5) **Repeat**: Continue expanding and pruning until the goal or the move limit is reached.
+
+**Beam Search vs Other Algorithm**
+|Feature|Greedy Algorithm|Beam Search|BFS(Breadth-First Search)|
+|:---|:---|:---|:---|
+|**Search Width**|1 (The Very Best)|k (The Top k Best)|$\infty$ (Every single move)|
+|**Memory Usage**|Very Low|Low to Moderate|Extremely High|
+|**Optimality**|Rarely optimal|Likely sub-optimal|Guaranteed optimal|
+|**Speed**|Fastest|Fast|Slowest|
+
+Thus, **Beam Search** is used as there is a move limit and time limit for the AI Player. Since the dice rolls are fixed, Beam Search can look several moves ahead and get the best move. The only downside is that if the optimal solution starts with a "bad-looking" path, it might delete the path at the start and fail to find the optimal path.
+
+**Results of Beam Search will be shown under the Screenshot column.
+
+## Flow Chart
+<img width="726" height="1072" alt="image" src="https://github.com/user-attachments/assets/d8d4bf60-bf24-4b0a-a809-f83e1e9d7767" />
+
+
+# Compilation and Run
 1. Change your terminal directory to the folder EWN-Puzzle-main
 ```
 cd .\EWN-Puzzle-main\
@@ -85,22 +132,58 @@ java GameMain
 java -jar EWN_GUI.jar
 ```
 
-# User guide / How to play
-# Screenshots
-# Contribution
-  1. Ooi Yong Zhe:
-     - Done major changes to GameState to refine and reduce redundancy within classes
-  3. Chew Jee Syuen:
-     - Complete GameLoader part
-     - Complete GameMain part
-     - Write report
-  4. Lim Kai Hern:
-     - Complete GameState part
-     - Refine Read me 
-     - Write report
-  5. Chaang Wai Chiu:
-     - Complete HumanPlayer part
-  6. Si Jun Tian:
-     -Complete RandomPlayer part
-# Challenges faced
+# User Guide
+1. Choose your gamemode (0 for Human Player, 1 for Random Player and 2 for AI Player).
+2. If Human Player is chosen, enter the name of the Player.
+3. For Random Player and AI Player, moves will be chosen automatically.
+4. For Human Player, users are required to enter their desired piece (if avaliable) and moves).
+5. In the end, the system will show whether the user has won the game.
+
+# Screenshots (Test Run)
+1. Human Player \
+   (a) Level 1
+   <img width="935" height="518" alt="image" src="https://github.com/user-attachments/assets/91a9f97e-87d8-4171-bc8e-3c6ec23b4710" />
+   <img width="940" height="587" alt="image" src="https://github.com/user-attachments/assets/4387ac94-f88b-4c15-a505-1c120899cae2" />
+   (b) Level 2
+   <img width="940" height="518" alt="image" src="https://github.com/user-attachments/assets/b396830a-e32b-426c-825f-e74547e84817" />
+   <img width="940" height="552" alt="image" src="https://github.com/user-attachments/assets/4c0eb645-44f3-4b75-b290-057e82927a3e" />
+   (c) Level 3
+   <img width="940" height="512" alt="image" src="https://github.com/user-attachments/assets/102037a4-f1e2-4bb0-a750-6b0337ea421e" />
+   <img width="940" height="552" alt="image" src="https://github.com/user-attachments/assets/4f1fe6b4-47d5-4231-ba6d-fbb3985e4203" />
+   (d) Level 4
+   <img width="940" height="522" alt="image" src="https://github.com/user-attachments/assets/166a5376-97d4-4e13-862c-9355a5ac9562" />
+   <img width="936" height="523" alt="image" src="https://github.com/user-attachments/assets/22b9062a-3627-4a69-a5ec-426184d7e9aa" />
+   <img width="940" height="552" alt="image" src="https://github.com/user-attachments/assets/83d3be28-f606-4255-8879-d5f7b9d4f639" />
+
+2. Random Player
+3. AI Player\
+   (a) Level 1 (Extra Feature: Solved within 6 moves)
+   <img width="935" height="560" alt="image" src="https://github.com/user-attachments/assets/579ca9d5-daf5-4d8c-bd6a-009b8a5747c7" />
+   <img width="940" height="551" alt="image" src="https://github.com/user-attachments/assets/931a557e-ccd3-4b64-8553-f976197f1a8f" />
+   (b) Level 2 (Extra Feature: Solved within 10 moves)
+   <img width="932" height="512" alt="image" src="https://github.com/user-attachments/assets/54645640-8bd2-418f-ba68-20ed3de4d58a" />
+   <img width="940" height="551" alt="image" src="https://github.com/user-attachments/assets/51e3de34-6ed5-45b8-b034-44094bb46028" />
+   (c) Level 3 (Extra Feature: Solved within 10 moves)
+   <img width="907" height="496" alt="image" src="https://github.com/user-attachments/assets/0cabf11a-094b-432a-b894-4e0c9948cf4a" />
+   <img width="940" height="549" alt="image" src="https://github.com/user-attachments/assets/e63f35af-b442-439f-8733-7939b09bd1cd" />
+   (d) Level 4 (Extra Feature: Solved within 15 moves)
+   <img width="918" height="504" alt="image" src="https://github.com/user-attachments/assets/b703f02d-fe8c-457e-88c3-eb62056c180d" />
+   <img width="940" height="550" alt="image" src="https://github.com/user-attachments/assets/1f64e461-cfd2-448c-8ea9-f87b40b07011" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
