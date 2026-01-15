@@ -45,11 +45,15 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
    * humanName() method - Static method, used to obtain the human player name.
 
 ## Extra Features
-1. Level 1
-2. Level 2
-3. Level 3
-4. Level 4
-(will talk about what restrictions, what algorithm used, and the performance)
+Design and implement our own logic (chooseMove() method) to automatically solve the given EWN puzzle under certain constraints.
+
+| Level | Maximum Moves |
+| :--- | :--- |
+| **Level 1** | 6 |
+| **Level 2** | 10 |
+| **Level 3** | 10 |
+| **Level 4** | 15 |
+Each level have to be solved **under 15 seconds**.
 
 # Solution
 ## Module Overview (Class Structure)
@@ -99,6 +103,8 @@ Score = (D * 100) + E
 |**Speed**|Fastest|Fast|Slowest|
 
 Thus, **Beam Search** is used as there is a move limit and time limit for the AI Player. Since the dice rolls are fixed, Beam Search can look several moves ahead and get the best move. The only downside is that if the optimal solution starts with a "bad-looking" path, it might delete the path at the start and fail to find the optimal path.
+
+**Results of Beam Search will be shown under the Screenshot column.
 
 ## Flow Chart
 <img width="726" height="1072" alt="image" src="https://github.com/user-attachments/assets/d8d4bf60-bf24-4b0a-a809-f83e1e9d7767" />
