@@ -127,7 +127,7 @@ java -jar EWN_GUI.jar
 
 # User guide / How to play
 # Screenshots (Test Run)
-1. Human Player
+1. Human Player \
    (a) Level 1
    <img width="935" height="518" alt="image" src="https://github.com/user-attachments/assets/91a9f97e-87d8-4171-bc8e-3c6ec23b4710" />
    <img width="940" height="587" alt="image" src="https://github.com/user-attachments/assets/4387ac94-f88b-4c15-a505-1c120899cae2" />
@@ -143,7 +143,7 @@ java -jar EWN_GUI.jar
    <img width="940" height="552" alt="image" src="https://github.com/user-attachments/assets/83d3be28-f606-4255-8879-d5f7b9d4f639" />
 
 2. Random Player
-3. AI Player
+3. AI Player\
    (a) Level 1 (Extra Feature: Solved within 6 moves)
    <img width="935" height="560" alt="image" src="https://github.com/user-attachments/assets/579ca9d5-daf5-4d8c-bd6a-009b8a5747c7" />
    <img width="940" height="551" alt="image" src="https://github.com/user-attachments/assets/931a557e-ccd3-4b64-8553-f976197f1a8f" />
@@ -155,7 +155,8 @@ java -jar EWN_GUI.jar
    <img width="940" height="549" alt="image" src="https://github.com/user-attachments/assets/e63f35af-b442-439f-8733-7939b09bd1cd" />
    (d) Level 4 (Extra Feature: Solved within 15 moves)
    <img width="918" height="504" alt="image" src="https://github.com/user-attachments/assets/b703f02d-fe8c-457e-88c3-eb62056c180d" />
-   <img width="940" height="587" alt="image" src="https://github.com/user-attachments/assets/2baccdda-7329-41d1-8d65-8368e0feba7d" />
+   <img width="940" height="550" alt="image" src="https://github.com/user-attachments/assets/1f64e461-cfd2-448c-8ea9-f87b40b07011" />
+
 
 
 
