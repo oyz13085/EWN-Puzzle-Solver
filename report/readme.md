@@ -1,12 +1,6 @@
 # WIX1002 FUNDAMENTALS OF PROGRAMMING - TOPIC 6: EinStein  würfelt nicht! Puzzle Solver 
-# Team Members:
-    1. OOI YONG ZHE (25069059)
-    2. CHEW JEE SYUEN (25066410)
-    3. LIM KAI HERN (23116000)
-    4. CHAANG WAI CHIU (23104771)
-    5. SI JUN TIAN (25068553)
 # Project Overview
-Introduction\
+##Introduction\
 In 1926, Albert Einstein challenged the scientific world with a single sentence: "I am convinced that He (God) does not play dice."
 
 This Java project brings that philosophy to life. We are reimagining the board game EinStein würfelt nicht by removing the element of chance entirely. By replacing the roll of the dice with fixed, pre-determined sequences, we have converted a game of probability into a rigorous test of logic and planning.
@@ -71,6 +65,26 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
 4. Level 4
 
 # How to compile and run
+1. Change your terminal directory to the folder EWN-Puzzle-main
+```
+cd .\EWN-Puzzle-main\
+```
+
+2. Compile all of the Java files inside the folder
+```
+javac *.java
+```
+
+3. Run the main file (GameMain)
+```
+java GameMain
+```
+
+4. To check the moves visually, run the EWN_GUI.jar file
+```
+java -jar EWN_GUI.jar
+```
+
 # User guide / How to play
 # Screenshots
 # Contribution
