@@ -7,9 +7,9 @@
     5. SI JUN TIAN (25068553)
 # Project Overview
 Introduction\
-In 1926, Albert Einstein challenged the scientific world with a single sentence: "I am convinced that He (God) does not play dice."\
+In 1926, Albert Einstein challenged the scientific world with a single sentence: "I am convinced that He (God) does not play dice."
 
-This Java project brings that philosophy to life. We are reimagining the board game EinStein würfelt nicht by removing the element of chance entirely. By replacing the roll of the dice with fixed, pre-determined sequences, we have converted a game of probability into a rigorous test of logic and planning.\
+This Java project brings that philosophy to life. We are reimagining the board game EinStein würfelt nicht by removing the element of chance entirely. By replacing the roll of the dice with fixed, pre-determined sequences, we have converted a game of probability into a rigorous test of logic and planning.
 
 The Challenge Players must navigate a target piece across a 10x10 grid using King-style movements. The board is laden with obstacles, and the clock is ticking: the solver must reach Square 0 in under 30 moves. This requires not just gameplay, but the implementation of efficient pathfinding algorithms to master the deterministic chaos.
 
@@ -82,6 +82,8 @@ The Challenge Players must navigate a target piece across a 10x10 grid using Kin
      - Write report
   4. Lim Kai Hern:
      - Complete GameState part
+     - Refine Read me 
+     - Write report
   5. Chaang Wai Chiu:
      - Complete HumanPlayer part
   6. Si Jun Tian:
