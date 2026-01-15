@@ -7,62 +7,68 @@ This Java project brings that philosophy to life. We are reimagining the board g
 
 The Challenge Players must navigate a target piece across a 10x10 grid using King-style movements. The board is laden with obstacles, and the clock is ticking: the solver must reach Square 0 in under 30 moves. This requires not just gameplay, but the implementation of efficient pathfinding algorithms to master the deterministic chaos.
 
-# Basic Features
-1. GameLoader.java - Constructor\
-   (a) Constructor is created to read data from the given filename (level1.txt, level2.txt, level3.txt and level4.txt).\
-   (b) Data read from the files are stored in appropriate variables (targetPiece, initialPosition and diceSequence).\
-   (c) Validation was carried out using try and catch for the selectedLevel(1-4).
-   
-2. GameLoader.java - printGameDetails()\
-   (a) printGameDetails() method was used to print all the game setup details into "moves.txt" file\
-   (b) Inside the file, the first line will print "Human Player", "Random Player" or "AI Player" based on the mode. If it is         "Human Player", it will also print out the name of the player.\
-   (b) Second line, print out the dice Sequence (30 sequences).\
-   (c) Third line, print out the target piece.\
-   (d) Fourth line, print out the initial position of all the 6 pieces.\
-   (e) Fifth line onwards until last line, print out the position of the pieces after each move until the game ends.
-   
-3. GameState.java - generatePossibleMoves()\
-   (a) generatePossibleMoves() method is used to determine the possible moves for each piece.\
-   (b) It works by taking the piece input and using that input to calculate the steps that are movable while avoiding space 22.\
-   (c) First, it detects if the pieces from dice roll are still on the board, it will calculate the closest two pieces
-       in terms of bigger and smaller and outputs to user.\
-   (d) Calculation is then done by separating the piece position with mathematical equations into rows and columns and 
-       then its check with different conditions to ensure that the value is not out of bounds and does not interfere with the space 22.\
-   (e) All of the valid positions are then stored in a arraylist call moves.
-   
-4. GameState.java - isWinning() \
-    (a) isWinning() is used to check if the winning conditions are met.\
-    (b) If the current position of the pieces is at the "0" space, the system will output "You win!".
+## Basic Requirements
+1. System Initialization and Data Handling
+   (a) GameLoader class (Constructor) - Required to obtain game data from external files and initialize the necessary data.
+   (b) GameLoader class (printGameDetails() method) - Static method, required to output the initial game configuration into moves.txt.
 
-5. HumanPlayer.java - chooseMove() \
-    (a) Extends the Player class to handle move selection for a human player. \
-    (b) Scanner reads input from the terminal then fetches valid moves from GameState.generatePossibleMoves() \
-    (c) Then, prompt the human player to make a move by outputs of movable pieces. \
-    (d) Returns new position after player makes a move. 
+2. Core Game Logic and State Management
+   (a) GameState class (generatePossibleMoves() method) - Required to calculate all valid movements by the piece based on its current position.
+   (b) GameState class (isWinning() method) - Required to check whether the target piece has reached "Square 0" successfully.
 
-6. RandomPlayer.java - chooseMove() \
-   (a) Purpose: Extends the Player class to handle move selection for the random player. \
-   (b) Core Logic: \
-   Fetches all valid moves via GameState.generatePossibleMoves() (stored in List<Move>).
-   Returns null if no valid moves exist (prevents NPE).
-   Uses Random to pick a random index from the valid moves list, then returns the corresponding Move.
-   (c) Output: A randomly selected Move (containing target piece and destination) to update the game state in GameMain. 
+3. Player Implementation and Decision Making
+   (a) abstract Player class (printMove() method) - An abstract method that has shared functionality across every player, which logs every move into moves.txt.
+   (b) HumanPlayer class (chooseMove() method) - Required to receive manual input, allowing users to select moves.
+   (c) RandomPlayer class (chooseMove() method) - Required to select a move randomly.
 
-7. Player.java - printMove() \
+4. Main Application Control
+   (a) GameMain class (main() method) - Required to prompt users to select game mode (Human, Random or AI).
+   (b) GameMain class (main() method) - Required for instantiation of chosen player type and executes move selection process.
+   (c) GameMain class (main() method) - Required to output the final results, whether the user won or lost the game.
 
-8. GameMain.java - main()\
-   (a) gameMode() method was used to ask player to input the mode (Human Player, Random Player or AI Player).\
-       To make it easy for the user to input, we define Human Player as 0, Random Player as 1 and AI Player as 2.\
-       User only need to input the mode is either (0,1 or 2).\
-   (b) humanName() method was used to ask user enter their username is the mode chosen is Human Player\
-   (c) getLevel() method was used to prompt users to enter the level that they want (level 1-4)\
-       If the levelSelected in valid, it it instantiates a GameLoader object to load the specific level file and immediately         calls printGameDetails() method to save the configuration to "moves.txt".\
-   (d) main() method is where all the methods were called (gameMode(), getLevel(), chooseMove()) and display the result of           the game whether it is winning or losing.
-# Extra Features
+## Added Features (Approach to the Problem)
+1. GameLoader class
+   (a) getInitialPosition() method - Non-static method, used to get the initial position without the need to reaccess the file.
+   (b) getTargetPiece() method - Non-static method, used to get the target piece without the need to reaccess the file.
+   (c) getDiceRoll() method - Non-static method, used to get the current dice roll without the need to reaccess the file.
+
+2. GameState class
+   (a) Constructor - Used to initialise the current piece positions and the target piece into the instance.
+   (b) getCurrentPositions() method - Non-static method, used to get the current positions after each update.
+   (c) updatePositions() method - Non-static method, used to update the positions after moving.
+   (d) generatePossiblePieces() method - Non-static method, used to obtain possible movable pieces under certain circumstances.
+
+3. GameMain class
+   (a) gameMode() method - Static method, used to obtain game mode and player name (Human Player).
+   (b) getLevel() method - Static method, used to obtain the chosen level and initialise the whole game system.
+   (c) mainGame() method - Static method, used for the instantiation of the chosen player and handles game logic.
+   (d) humanName() method - Static method, used to obtain the human player name.
+
+## Extra Features
 1. Level 1
 2. Level 2
 3. Level 3
 4. Level 4
+(will talk about what restrictions, what algorithm used, and the performance)
+
+# Solution
+## Module Overview (Class Structure)
+|Module|Description|
+---
+|GameMain|The main class. Responsible for user input, player selection, and the primary game loop.|
+---
+|GameLoader|Handles initial external file I/O. Responsible for reading level configurations and ensuring all initial data is loaded into memory.|
+---
+|GameState|Handles logic and rules. Responsible for validating valid moves and detecting the win condition.|
+---
+|Player (Abstract)|The blueprint for all classes of players, ensuring the same logic for logging to moves.txt|
+---
+|HumanPlayer|Responsible for creating the prompt for the user to choose their moves.|
+---
+|RandomPlayer|Responsible for creating the random logic to solve the puzzle.|
+---
+|AIPlayer|Responsible for finding the most optimal solution for the puzzle using Beam Search.|
+---
 
 # How to compile and run
 1. Change your terminal directory to the folder EWN-Puzzle-main
