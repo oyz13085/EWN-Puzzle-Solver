@@ -53,6 +53,7 @@ Design and implement our own logic (chooseMove() method) to automatically solve 
 | **Level 2** | 10 |
 | **Level 3** | 10 |
 | **Level 4** | 15 |
+
 Each level have to be solved **under 15 seconds**.
 
 # Solution
