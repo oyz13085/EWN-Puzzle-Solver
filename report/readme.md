@@ -81,7 +81,7 @@ Beam Search utilizes a parameter called **Beam Width (*k*)**. This number determ
 2) **Expansion**: For every path currently tracking, generate all possible successor moves.
 3) **Scoring**: Use a **Heuristic Function** to assign a score to every new path. The function used is shown below:
 ```math
-*Score = (D x 100) + E*
+Score = (D x 100) + E
 ```
 * $D$ (**Chebyshev Distance**):  Calculated as $max(\Delta x, \Delta y)$ from the target piece to $(0,0)$. This accounts for diagonal moves.
 * $E$ (**Enemy Count**): A small penalty for each remaining enemy piece, encouraging the AI to capture obstacles if they block the path.
