@@ -1,16 +1,16 @@
 # EWN Puzzle Solver Managerial Report
 
-**Course:** WIX1002 Fundamental of Programming
-**Topic:** Topic 6 - EWN Puzzle Solver
-**Institution:** University of Malaya
+**Course:** WIX1002 Fundamental of Programming  
+**Topic:** Topic 6 - EWN Puzzle Solver  
+**Institution:** University of Malaya  
 
 ## 📋 Project Overview
 This project is a Java-based implementation of the Einstein Würfelt Nicht (EWN) Puzzle Solver. It serves as the managerial report and documentation for the assignment completed by Group 8.
 
 ## 👥 Group Information
-**Team Name:** Gardenia Bread Factory
-**Group Number:** Group 8
-**Lecturer:** Dr. Mohamad Hazim Bin Md Hanif
+**Team Name:** Gardenia Bread Factory  
+**Group Number:** Group 8  
+**Lecturer:** Dr. Mohamad Hazim Bin Md Hanif  
 
 ### Contributors & Roles
 
