@@ -6,7 +6,7 @@ public class GameLoader {
     private int[] diceSequence = new int[30];
 
     public GameLoader(int selectedLevel) {
-        String fileName = "TestCases//level" + selectedLevel + ".txt";
+        String fileName = "TestCases\\level" + selectedLevel + ".txt";
         
         try (Scanner input = new Scanner(new FileInputStream(fileName))) {
             if (input.hasNextInt()) {
